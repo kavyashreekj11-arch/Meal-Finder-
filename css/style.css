@@ -1,9 +1,31 @@
 body {
+    margin: 0;
     background-color: #f8f9fa;
     font-family: Arial, sans-serif;
 }
 
-h1{
-    color: #e65c1c;
-    text-align: center;
+/* Navbar */
+header {
+    background-color: #ff6b35;
+    padding: 15px 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
 }
