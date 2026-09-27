@@ -1,6 +1,6 @@
 /* Hero Section */
 .hero {
-    background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+    background-image: url("../assets/bg-pic.png");
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -45,4 +45,25 @@
 .hero p {
     font-size: 14px;
     letter-spacing: 2px;
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 40px 30px;
+    text-align: center;
+    background-color: white;
+}
+
+.categories-section h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+#categoriesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
