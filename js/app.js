@@ -7,6 +7,36 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
     .then(data => {
 
         const categories = data.categories;
+        const menuCategories = document.getElementById("menuCategories");
+
+categories.forEach(category => {
+
+    const menuLink = document.createElement("a");
+
+    menuLink.textContent = category.strCategory;
+    menuLink.href = "#";
+
+    menuCategories.appendChild(menuLink);
+
+});
+
+
+     const menuButton = document.querySelector(".menu-btn");
+     const categoryMenu = document.getElementById("categoryMenu");
+     const closeMenu = document.getElementById("closeMenu");
+     const menuOverlay = document.getElementById("menuOverlay");
+
+     menuButton.addEventListener("click", () => {
+      categoryMenu.classList.add("active");
+      menuOverlay.classList.add("active");
+});
+
+     closeMenu.addEventListener("click", () => {
+      categoryMenu.classList.remove("active");
+      menuOverlay.classList.remove("active");
+});
+
+
         const categoriesContainer = document.getElementById("categoriesContainer");
 
         categories.forEach(category => {
