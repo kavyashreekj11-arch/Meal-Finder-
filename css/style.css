@@ -55,15 +55,51 @@
 }
 
 .categories-section h2 {
-    color: #333;
+    color: #111;
     font-size: 28px;
-    margin-bottom: 30px;
+    letter-spacing: 4px;
+    margin-bottom: 60px;
+    position: relative;
+    text-align: left;
+}
+
+.categories-section h2::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 5px;
+    background-color: #e65c1c;
+    margin-top: 15px;
 }
 
 #categoriesContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
     max-width: 1100px;
     margin: 0 auto;
+}
+
+.category-card {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.category-card img {
+    width: 100%;
+    display: block;
+}
+
+.category-card span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e65c1c;
+    color: white;
+    padding: 5px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
