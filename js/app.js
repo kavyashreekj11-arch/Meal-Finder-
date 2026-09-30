@@ -24,16 +24,13 @@ categories.forEach(category => {
      const menuButton = document.querySelector(".menu-btn");
      const categoryMenu = document.getElementById("categoryMenu");
      const closeMenu = document.getElementById("closeMenu");
-     const menuOverlay = document.getElementById("menuOverlay");
 
      menuButton.addEventListener("click", () => {
       categoryMenu.classList.add("active");
-      menuOverlay.classList.add("active");
 });
 
      closeMenu.addEventListener("click", () => {
       categoryMenu.classList.remove("active");
-      menuOverlay.classList.remove("active");
 });
 
 
