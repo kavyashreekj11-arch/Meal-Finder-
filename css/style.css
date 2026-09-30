@@ -453,10 +453,78 @@ nav {
    CATEGORY MEAL GRID
 ========================================= */
 
+/* =========================================
+   CATEGORY MEAL GRID
+========================================= */
+
 #categoryMealsContainer {
     display: grid;
+
     grid-template-columns: repeat(5, 1fr);
+
     gap: 30px;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   MEAL CARD
+========================================= */
+
+#categoryMealsContainer > div {
+    background-color: white;
+
+    overflow: hidden;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+   MEAL IMAGE
+========================================= */
+
+#categoryMealsContainer img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================================
+   MEAL CATEGORY
+========================================= */
+
+#categoryMealsContainer .meal-category {
+    margin: 14px 15px 4px;
+
+    color: #777;
+
+    font-size: 17px;
+
+    font-weight: normal;
+}
+
+
+/* =========================================
+   MEAL NAME
+========================================= */
+
+#categoryMealsContainer h3 {
+    margin: 0 15px 20px;
+
+    color: #222;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.4;
 }
 
 

@@ -170,16 +170,20 @@ function showCategory(categoryName, description) {
                 const mealCard =
                     document.createElement("div");
 
-                mealCard.innerHTML = `
-                    <img
-                        src="${meal.strMealThumb}"
-                        alt="${meal.strMeal}"
-                    >
+                    mealCard.innerHTML = `
+                        <img
+                            src="${meal.strMealThumb}"
+                            alt="${meal.strMeal}"
+                        >
+                      
+                        <p class="meal-category">
+                            ${categoryName}
+                      </p>
 
-                    <h3>
-                        ${meal.strMeal}
-                    </h3>
-                `;
+                      <h3>
+                           ${meal.strMeal}
+                      </h3>
+                    `;
 
                 categoryMealsContainer.appendChild(
                     mealCard
