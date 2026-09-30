@@ -560,3 +560,94 @@ nav {
 
     line-height: 1.4;
 }
+
+/* =========================================
+   SEARCH RESULTS
+========================================= */
+
+.search-results-section {
+    display: none;
+
+    background-color: white;
+
+    padding: 80px 0 60px;
+}
+
+.search-results-section h2 {
+    width: 1620px;
+    max-width: calc(100% - 60px);
+
+    margin: 0 auto 45px;
+
+    color: #111;
+
+    font-size: 30px;
+
+    letter-spacing: 4px;
+}
+
+.search-results-section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 75px;
+    height: 4px;
+
+    background-color: #f26b21;
+
+    margin-top: 15px;
+}
+
+#searchResultsContainer {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 30px;
+
+    width: 1620px;
+    max-width: calc(100% - 60px);
+
+    margin: 0 auto;
+}
+
+/* Search result meal cards */
+
+#searchResultsContainer > div {
+    background-color: white;
+
+    overflow: hidden;
+
+    min-width: 0;
+}
+
+#searchResultsContainer img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+#searchResultsContainer .meal-category {
+    margin: 14px 15px 4px;
+
+    color: #777;
+
+    font-size: 17px;
+}
+
+#searchResultsContainer h3 {
+    margin: 0 15px 20px;
+
+    color: #222;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+}

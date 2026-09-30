@@ -229,3 +229,110 @@ closeMenu.addEventListener("click", () => {
     categoryMenu.classList.remove("active");
 
 });
+
+// =========================================
+// SEARCH FUNCTIONALITY
+// =========================================
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const searchButton =
+    document.getElementById("searchBtn");
+
+const searchResultsSection =
+    document.getElementById("searchResultsSection");
+
+const searchResultsContainer =
+    document.getElementById("searchResultsContainer");
+
+
+searchButton.addEventListener("click", searchMeals);
+
+
+function searchMeals() {
+
+    const foodName =
+        searchInput.value.trim();
+
+
+    // Do nothing if search is empty
+
+    if (foodName === "") {
+        return;
+    }
+
+
+    fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
+    )
+        .then(response => response.json())
+
+        .then(data => {
+
+            console.log(data);
+
+
+            // Clear previous results
+
+            searchResultsContainer.innerHTML = "";
+
+
+            // Show search section
+
+            searchResultsSection.style.display =
+                "block";
+
+
+            // No meals found
+
+            if (!data.meals) {
+
+                searchResultsContainer.innerHTML =
+                    "<p>No meals found.</p>";
+
+                return;
+            }
+
+
+            // Display meals
+
+            data.meals.forEach(meal => {
+
+                const mealCard =
+                    document.createElement("div");
+
+
+                mealCard.innerHTML = `
+                    <img
+                        src="${meal.strMealThumb}"
+                        alt="${meal.strMeal}"
+                    >
+
+                    <p class="meal-category">
+                        ${meal.strCategory}
+                    </p>
+
+                    <h3>
+                        ${meal.strMeal}
+                    </h3>
+                `;
+
+
+                searchResultsContainer.appendChild(
+                    mealCard
+                );
+
+            });
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                "Error searching meals:",
+                error
+            );
+
+        });
+}
