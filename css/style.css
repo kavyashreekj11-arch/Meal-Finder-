@@ -32,7 +32,6 @@ nav {
     align-items: center;
 }
 
-
 .logo {
     position: absolute;
     left: 0;
@@ -41,6 +40,11 @@ nav {
 
     font-size: 27px;
     font-weight: bold;
+}
+
+.home-icon {
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 .menu-btn {
@@ -60,6 +64,7 @@ nav {
 
     cursor: pointer;
 }
+
 
 /* =========================================
    HERO SECTION
@@ -82,7 +87,7 @@ nav {
 }
 
 
-/* Permanent dark layer */
+/* Permanent dark layer over image */
 
 .hero::before {
     content: "";
@@ -94,7 +99,7 @@ nav {
 }
 
 
-/* Content stays above dark layer */
+/* Hero content stays above dark layer */
 
 .hero-content {
     position: relative;
@@ -105,7 +110,7 @@ nav {
 
 
 /* =========================================
-   SEARCH
+   SEARCH BAR
 ========================================= */
 
 .search-container {
@@ -217,6 +222,7 @@ nav {
     margin-top: 15px;
 }
 
+
 /* =========================================
    CATEGORY GRID
 ========================================= */
@@ -261,7 +267,7 @@ nav {
     top: 10px;
     right: 10px;
 
-    background-color: #e65c1c;
+    background-color: #f26b21;
 
     color: white;
 
@@ -283,7 +289,6 @@ nav {
     position: fixed;
 
     top: 0;
-
     right: -370px;
 
     width: 370px;
@@ -316,13 +321,13 @@ nav {
     width: 32px;
     height: 32px;
 
-    border: 2px solid #e65c1c;
+    border: 2px solid #f26b21;
 
     border-radius: 50%;
 
     background-color: white;
 
-    color: #e65c1c;
+    color: #f26b21;
 
     font-size: 24px;
 
@@ -355,5 +360,135 @@ nav {
 }
 
 #menuCategories a:hover {
-    color: #e65c1c;
+    color: #f26b21;
+}
+
+
+/* =========================================
+   CATEGORY PAGE
+========================================= */
+
+.category-page {
+    display: none;
+
+    background-color: white;
+
+    min-height: 100vh;
+
+    padding: 70px 0;
+}
+
+
+/* =========================================
+   CATEGORY INFORMATION
+========================================= */
+
+.category-info {
+    width: 1620px;
+    max-width: calc(100% - 60px);
+
+    margin: 0 auto 70px;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #f26b21;
+}
+
+.category-info h1 {
+    margin: 0 0 20px;
+
+    color: #f26b21;
+
+    font-size: 32px;
+}
+
+.category-info p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CATEGORY MEALS
+========================================= */
+
+.category-meals {
+    width: 1620px;
+    max-width: calc(100% - 60px);
+
+    margin: 0 auto;
+}
+
+.category-meals h2 {
+    margin: 0 0 40px;
+
+    color: #111;
+
+    font-size: 30px;
+
+    letter-spacing: 4px;
+}
+
+.category-meals h2::after {
+    content: "";
+
+    display: block;
+
+    width: 75px;
+    height: 4px;
+
+    background-color: #f26b21;
+
+    margin-top: 15px;
+}
+
+/* =========================================
+   CATEGORY MEAL GRID
+========================================= */
+
+#categoryMealsContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+
+/* Individual meal card */
+
+#categoryMealsContainer > div {
+    background-color: white;
+    overflow: hidden;
+}
+
+
+/* Meal image */
+
+#categoryMealsContainer img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* Meal name */
+
+#categoryMealsContainer h3 {
+    margin: 15px 5px;
+
+    color: #222;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    line-height: 1.4;
 }
