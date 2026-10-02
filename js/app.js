@@ -79,7 +79,9 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
             const categoryCard =
                 document.createElement("div");
 
-            categoryCard.classList.add("category-card");
+            categoryCard.classList.add(
+                "category-card"
+            );
 
 
             categoryCard.innerHTML = `
@@ -95,7 +97,7 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
 
             // =========================================
-            // OPEN CATEGORY PAGE WHEN CARD IS CLICKED
+            // CATEGORY CARD CLICK
             // =========================================
 
             categoryCard.addEventListener(
@@ -104,7 +106,8 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
                     showCategory(
                         category.strCategory,
-                        category.strCategoryDescription
+                        category.strCategoryDescription,
+                        true
                     );
 
                 }
@@ -141,7 +144,8 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
 
                     showCategory(
                         category.strCategory,
-                        category.strCategoryDescription
+                        category.strCategoryDescription,
+                        true
                     );
 
                 }
@@ -153,6 +157,13 @@ fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
             );
 
         });
+
+
+        // =========================================
+        // RESTORE PAGE FROM URL
+        // =========================================
+
+        restorePageFromHistory();
 
     })
 
@@ -178,7 +189,9 @@ function createMealCard(
     const mealCard =
         document.createElement("div");
 
-    mealCard.classList.add("meal-card");
+    mealCard.classList.add(
+        "meal-card"
+    );
 
 
     // Category shown in badge
@@ -216,6 +229,7 @@ function createMealCard(
         </h3>
     `;
 
+
     return mealCard;
 }
 
@@ -226,15 +240,39 @@ function createMealCard(
 
 function showCategory(
     categoryName,
-    description
+    description,
+    addHistory = false
 ) {
 
     // Close side menu
 
-    categoryMenu.classList.remove("active");
+    categoryMenu.classList.remove(
+        "active"
+    );
 
 
-    // Hide homepage sections
+    // =========================================
+    // UPDATE BROWSER HISTORY
+    // =========================================
+
+    if (addHistory) {
+
+        history.pushState(
+            {
+                page: "category",
+                category: categoryName,
+                description: description
+            },
+            "",
+            `#category=${encodeURIComponent(categoryName)}`
+        );
+
+    }
+
+
+    // =========================================
+    // HIDE HOMEPAGE
+    // =========================================
 
     hero.style.display = "none";
 
@@ -243,12 +281,12 @@ function showCategory(
     searchResultsSection.style.display = "none";
 
 
-    // Show category page
+    // =========================================
+    // SHOW CATEGORY PAGE
+    // =========================================
 
     categoryPage.style.display = "block";
 
-
-    // Add category information
 
     categoryTitle.textContent =
         categoryName;
@@ -317,21 +355,44 @@ function showCategory(
 // SHOW HOMEPAGE
 // =========================================
 
-function showHomePage() {
+function showHomePage(
+    addHistory = false
+) {
 
     // Close side menu
 
-    categoryMenu.classList.remove("active");
+    categoryMenu.classList.remove(
+        "active"
+    );
 
 
-    // Show homepage sections
+    // =========================================
+    // UPDATE BROWSER HISTORY
+    // =========================================
+
+    if (addHistory) {
+
+        history.pushState(
+            {
+                page: "home"
+            },
+            "",
+            window.location.pathname
+        );
+
+    }
+
+
+    // =========================================
+    // SHOW HOMEPAGE
+    // =========================================
 
     hero.style.display = "flex";
 
     categoriesSection.style.display = "block";
 
 
-    // Hide other pages/sections
+    // Hide other pages
 
     categoryPage.style.display = "none";
 
@@ -355,7 +416,7 @@ logo.addEventListener(
     "click",
     () => {
 
-        showHomePage();
+        showHomePage(true);
 
     }
 );
@@ -367,9 +428,11 @@ logo.addEventListener(
 
 homeIcon.addEventListener(
     "click",
-    () => {
+    event => {
 
-        showHomePage();
+        event.stopPropagation();
+
+        showHomePage(true);
 
     }
 );
@@ -403,7 +466,13 @@ searchInput.addEventListener(
 );
 
 
-function searchMeals() {
+// =========================================
+// SEARCH MEALS
+// =========================================
+
+function searchMeals(
+    addHistory = true
+) {
 
     const foodName =
         searchInput.value.trim();
@@ -416,7 +485,27 @@ function searchMeals() {
     }
 
 
-    // Return to homepage view
+    // =========================================
+    // UPDATE BROWSER HISTORY
+    // =========================================
+
+    if (addHistory) {
+
+        history.pushState(
+            {
+                page: "search",
+                query: foodName
+            },
+            "",
+            `#search=${encodeURIComponent(foodName)}`
+        );
+
+    }
+
+
+    // =========================================
+    // SHOW HOMEPAGE HERO
+    // =========================================
 
     hero.style.display = "flex";
 
@@ -435,7 +524,7 @@ function searchMeals() {
     // =========================================
 
     fetch(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(foodName)}`
     )
 
         .then(response => response.json())
@@ -490,6 +579,117 @@ function searchMeals() {
             );
 
         });
+}
+
+
+// =========================================
+// BROWSER BACK / FORWARD
+// =========================================
+
+window.addEventListener(
+    "popstate",
+    () => {
+
+        restorePageFromHistory();
+
+    }
+);
+
+
+// =========================================
+// RESTORE PAGE FROM HISTORY
+// =========================================
+
+function restorePageFromHistory() {
+
+    const hash =
+        window.location.hash;
+
+
+    // =========================================
+    // CATEGORY HISTORY
+    // =========================================
+
+    if (
+        hash.startsWith("#category=")
+    ) {
+
+        const categoryName =
+            decodeURIComponent(
+                hash.replace(
+                    "#category=",
+                    ""
+                )
+            );
+
+
+        // Find category description
+
+        fetch(
+            "https://www.themealdb.com/api/json/v1/1/categories.php"
+        )
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                const category =
+                    data.categories.find(
+                        item =>
+                            item.strCategory ===
+                            categoryName
+                    );
+
+
+                if (category) {
+
+                    showCategory(
+                        category.strCategory,
+                        category.strCategoryDescription,
+                        false
+                    );
+
+                }
+
+            });
+
+        return;
+    }
+
+
+    // =========================================
+    // SEARCH HISTORY
+    // =========================================
+
+    if (
+        hash.startsWith("#search=")
+    ) {
+
+        const foodName =
+            decodeURIComponent(
+                hash.replace(
+                    "#search=",
+                    ""
+                )
+            );
+
+
+        searchInput.value =
+            foodName;
+
+
+        searchMeals(false);
+
+        return;
+    }
+
+
+    // =========================================
+    // DEFAULT → HOMEPAGE
+    // =========================================
+
+    showHomePage(false);
+
 }
 
 
