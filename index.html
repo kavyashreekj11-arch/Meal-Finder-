@@ -2,122 +2,205 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meal Finder</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>MealFinder</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- Navbar -->
-<header>
-    <nav>
-        <div class="logo">
-             <span class="home-icon">⌂</span> MealFinder.
-        </div>
 
-        <button class="menu-btn">
-            ☰
-        </button>
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
 
-        <aside id="categoryMenu">
+    <header>
 
-         <button id="closeMenu">×</button>
+        <nav>
 
-        <div id="menuCategories">
-             <!-- Categories will be added here using JavaScript -->
-        </div>
+            <div class="logo">
 
-</aside>
+                <span
+                    class="home-icon"
+                    title="Home"
+                >
+                    ⌂
+                </span>
 
+                <span class="logo-text">
+                    MealFinder.
+                </span>
 
-            <div id="menuCategories">
-                <!-- Categories will be added here using JavaScript -->
             </div>
 
-        </aside>
-    </nav>
-</header>
+
+            <button
+                class="menu-btn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
 
 
-    <!-- Hero Section -->
+            <!-- =========================================
+                 CATEGORY SIDE MENU
+            ========================================== -->
+
+            <aside id="categoryMenu">
+
+                <button
+                    id="closeMenu"
+                    aria-label="Close menu"
+                >
+                    ×
+                </button>
+
+
+                <div id="menuCategories">
+                    <!-- Categories will be added here using JavaScript -->
+                </div>
+
+            </aside>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
     <section class="hero">
 
         <div class="hero-content">
 
             <div class="search-container">
+
                 <input
                     type="text"
                     id="searchInput"
                     placeholder="Search recipes here..."
                 >
 
-                <button id="searchBtn">
+                <button
+                    id="searchBtn"
+                    aria-label="Search"
+                >
                     🔍
                 </button>
+
             </div>
 
-            <h1>What are your favorite cuisines?</h1>
 
-            <p>PERSONALIZE YOUR EXPERIENCE</p>
+            <h1>
+                What are your favorite cuisines?
+            </h1>
+
+
+            <p>
+                PERSONALIZE YOUR EXPERIENCE
+            </p>
 
         </div>
 
     </section>
 
 
-        <!-- Search Results -->
-<section class="search-results-section" id="searchResultsSection">
 
-    <h2>MEALS</h2>
+    <!-- =========================================
+         SEARCH RESULTS
+    ========================================== -->
 
-    <div id="searchResultsContainer">
-        <!-- Search results will be added here using JavaScript -->
-    </div>
+    <section
+        class="search-results-section"
+        id="searchResultsSection"
+    >
 
-</section>
+        <h2>
+            MEALS
+        </h2>
 
 
-    <!-- Categories Section -->
+        <div id="searchResultsContainer">
+            <!-- Search results will be added here using JavaScript -->
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CATEGORIES SECTION
+    ========================================== -->
+
     <section class="categories-section">
 
-        <h2>CATEGORIES</h2>
+        <h2>
+            CATEGORIES
+        </h2>
+
 
         <div id="categoriesContainer">
-
             <!-- Categories will be added here using JavaScript -->
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CATEGORY PAGE
+    ========================================== -->
+
+    <section
+        class="category-page"
+        id="categoryPage"
+    >
+
+        <div class="category-info">
+
+            <h1 id="categoryTitle"></h1>
+
+            <p id="categoryDescription"></p>
+
+        </div>
+
+
+        <div class="category-meals">
+
+            <h2>
+                MEALS
+            </h2>
+
+
+            <div id="categoryMealsContainer">
+                <!-- Meals will be added here using JavaScript -->
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- Category Page -->
-<section class="category-page" id="categoryPage">
 
-    <div class="category-info">
-
-        <h1 id="categoryTitle"></h1>
-
-        <p id="categoryDescription"></p>
-
-    </div>
-
-    <div class="category-meals">
-
-        <h2>MEALS</h2>
-
-        <div id="categoryMealsContainer">
-            <!-- Meals will be added here using JavaScript -->
-        </div>
-
-    </div>
-
-</section>
-
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
     <script src="js/app.js"></script>
 

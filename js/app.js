@@ -44,6 +44,12 @@ const categoryMenu =
 const closeMenu =
     document.getElementById("closeMenu");
 
+const logo =
+    document.querySelector(".logo");
+
+const homeIcon =
+    document.querySelector(".home-icon");
+
 
 // =========================================
 // FETCH MEAL CATEGORIES
@@ -215,7 +221,7 @@ function createMealCard(
 
 
 // =========================================
-// CATEGORY PAGE
+// SHOW CATEGORY PAGE
 // =========================================
 
 function showCategory(
@@ -305,6 +311,68 @@ function showCategory(
 
         });
 }
+
+
+// =========================================
+// SHOW HOMEPAGE
+// =========================================
+
+function showHomePage() {
+
+    // Close side menu
+
+    categoryMenu.classList.remove("active");
+
+
+    // Show homepage sections
+
+    hero.style.display = "flex";
+
+    categoriesSection.style.display = "block";
+
+
+    // Hide other pages/sections
+
+    categoryPage.style.display = "none";
+
+    searchResultsSection.style.display = "none";
+
+
+    // Clear previous results
+
+    searchResultsContainer.innerHTML = "";
+
+    categoryMealsContainer.innerHTML = "";
+
+}
+
+
+// =========================================
+// LOGO → HOMEPAGE
+// =========================================
+
+logo.addEventListener(
+    "click",
+    () => {
+
+        showHomePage();
+
+    }
+);
+
+
+// =========================================
+// HOME ICON → HOMEPAGE
+// =========================================
+
+homeIcon.addEventListener(
+    "click",
+    () => {
+
+        showHomePage();
+
+    }
+);
 
 
 // =========================================
