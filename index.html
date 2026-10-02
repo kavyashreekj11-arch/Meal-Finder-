@@ -19,13 +19,11 @@
 
 </head>
 
-
 <body>
 
-
-    <!-- =========================================
+    <!-- ==========================================
          NAVBAR
-    ========================================== -->
+    =========================================== -->
 
     <header>
 
@@ -55,10 +53,6 @@
             </button>
 
 
-            <!-- =========================================
-                 CATEGORY SIDE MENU
-            ========================================== -->
-
             <aside id="categoryMenu">
 
                 <button
@@ -68,10 +62,7 @@
                     ×
                 </button>
 
-
-                <div id="menuCategories">
-                    <!-- Categories will be added here using JavaScript -->
-                </div>
+                <div id="menuCategories"></div>
 
             </aside>
 
@@ -80,10 +71,9 @@
     </header>
 
 
-
-    <!-- =========================================
-         HERO SECTION
-    ========================================== -->
+    <!-- ==========================================
+         HERO
+    =========================================== -->
 
     <section class="hero">
 
@@ -121,10 +111,9 @@
     </section>
 
 
-
-    <!-- =========================================
+    <!-- ==========================================
          SEARCH RESULTS
-    ========================================== -->
+    =========================================== -->
 
     <section
         class="search-results-section"
@@ -135,37 +124,14 @@
             MEALS
         </h2>
 
-
-        <div id="searchResultsContainer">
-            <!-- Search results will be added here using JavaScript -->
-        </div>
+        <div id="searchResultsContainer"></div>
 
     </section>
 
 
-
-    <!-- =========================================
-         CATEGORIES SECTION
-    ========================================== -->
-
-    <section class="categories-section">
-
-        <h2>
-            CATEGORIES
-        </h2>
-
-
-        <div id="categoriesContainer">
-            <!-- Categories will be added here using JavaScript -->
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
+    <!-- ==========================================
          CATEGORY PAGE
-    ========================================== -->
+    =========================================== -->
 
     <section
         class="category-page"
@@ -187,9 +153,170 @@
                 MEALS
             </h2>
 
+            <div id="categoryMealsContainer"></div>
 
-            <div id="categoryMealsContainer">
-                <!-- Meals will be added here using JavaScript -->
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         MEAL DETAILS PAGE
+    =========================================== -->
+
+    <section
+        class="meal-details-page"
+        id="mealDetailsPage"
+    >
+
+        <div class="meal-details-wrapper">
+
+
+            <!-- BREADCRUMB -->
+
+            <div class="meal-breadcrumb">
+
+                <span class="breadcrumb-home">
+                    ⌂
+                </span>
+
+                <span>
+                    »
+                </span>
+
+                <span id="breadcrumbMealName">
+                    MEAL DETAILS
+                </span>
+
+            </div>
+
+
+            <!-- HEADING -->
+
+            <div class="meal-details-heading">
+
+                <h2>
+                    MEAL DETAILS
+                </h2>
+
+            </div>
+
+
+            <!-- MAIN MEAL INFORMATION -->
+
+            <div class="meal-details-card">
+
+
+                <!-- IMAGE -->
+
+                <div class="meal-details-image-wrapper">
+
+                    <img
+                        id="mealDetailsImage"
+                        src=""
+                        alt=""
+                    >
+
+                </div>
+
+
+                <!-- INFORMATION -->
+
+                <div class="meal-details-information">
+
+                    <h1 id="mealDetailsTitle"></h1>
+
+                    <div class="details-line"></div>
+
+
+                    <p class="detail-row">
+
+                        <strong>
+                            CATEGORY:
+                        </strong>
+
+                        <span id="mealDetailsCategory"></span>
+
+                    </p>
+
+
+                    <p class="detail-row">
+
+                        <strong>
+                            Source:
+                        </strong>
+
+                        <span id="mealDetailsSource"></span>
+
+                    </p>
+
+
+                    <p
+                        class="detail-row tags-row"
+                        id="mealDetailsTagsRow"
+                    >
+
+                        <strong>
+                            Tags:
+                        </strong>
+
+                        <span
+                            id="mealDetailsTags"
+                            class="tag-value"
+                        ></span>
+
+                    </p>
+
+
+                    <!-- INGREDIENTS -->
+
+                    <div class="ingredients-box">
+
+                        <h3>
+                            Ingredients
+                        </h3>
+
+                        <div
+                            id="ingredientsContainer"
+                            class="ingredients-list"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEASURE -->
+
+            <div class="measure-section">
+
+                <h3>
+                    Measure:
+                </h3>
+
+                <div
+                    id="measureContainer"
+                    class="measure-grid"
+                ></div>
+
+            </div>
+
+
+            <!-- INSTRUCTIONS -->
+
+            <div class="instructions-section">
+
+                <h3>
+                    Instructions:
+                </h3>
+
+                <div
+                    id="instructionsContainer"
+                    class="instructions-list"
+                ></div>
+
             </div>
 
         </div>
@@ -197,10 +324,28 @@
     </section>
 
 
+    <!-- ==========================================
+         CATEGORIES
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
+         IMPORTANT:
+         This comes AFTER meal-details-page
+         so it naturally appears underneath
+         the meal details page.
+    =========================================== -->
+
+    <section
+        class="categories-section"
+        id="categoriesSection"
+    >
+
+        <h2>
+            CATEGORIES
+        </h2>
+
+        <div id="categoriesContainer"></div>
+
+    </section>
+
 
     <script src="js/app.js"></script>
 
